@@ -41,7 +41,7 @@ tail -f $OUT | telnet $server $port ^$ERR | tee $IN | while read input;
                 set chan $components[3]
                 set cmd (echo $components[4] | sed 's/:'$leader'\(.*\)/\1/')
                 if [ (count $components) -ge '5' ]
-                    set rest (echo $components[5..-1] | tr \n ' ')
+                    set rest (echo $components[5..-1] | tr \n ' ' | sed 's/[[:space:]]*$//')
                 else
                     set rest ''
                 end
