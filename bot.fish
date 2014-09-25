@@ -22,6 +22,7 @@ set LOG 'bot.log'
 
 # Initialization
 echo "" >$OUT
+mkdir -p data/
 
 # Session
 log ">>>>> New Session <<<<<"
