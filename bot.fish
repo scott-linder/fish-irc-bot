@@ -6,6 +6,7 @@ set port 6667
 set chan test
 set nick fish
 set user 'fish localhost localhost :fish'
+set leader '$'
 
 # User configuration
 . bot.cfg
@@ -57,7 +58,7 @@ tail -f $OUT | telnet $server $port ^$ERR | tee $IN | while read input;
             if [ (count $components) -ge '4' ]
                 set nick (echo $components[1] | sed 's/^:\(.*\)!.*/\1/')
                 set chan $components[3]
-                set cmd (echo $components[4] | sed 's/:!\(.*\)/\1/')
+                set cmd (echo $components[4] | sed 's/:'$leader'\(.*\)/\1/')
                 if [ (count $components) -ge '5' ]
                     set rest (echo $components[5..-1] | tr \n ' ')
                 else
