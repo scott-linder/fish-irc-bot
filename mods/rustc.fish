@@ -1,1 +1,1 @@
-msg $chan $nick': '(echo '{"code":"'$rest'"}' | curl -X POST -d @- -H 'Content-Type: application/json' 'http://play.rust-lang.org/evaluate.json')
+msg $chan $nick': '(echo '{"code":"'(echo $rest | sed 's/"/\\\"/g')'"}' | curl -X POST -d @- -H 'Content-Type: application/json' 'http://play.rust-lang.org/evaluate.json')
