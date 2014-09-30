@@ -4,7 +4,7 @@ end
 
 function out -d "Write to IRC server"
     set -l output $argv[1]
-    log '>'$output
+    log '> '$output
     echo $output >>$OUT
 end
 

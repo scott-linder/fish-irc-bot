@@ -30,7 +30,7 @@ out "NICK $nick"
 out "USER $user"
 out "JOIN #$chan"
 tail -f $OUT | telnet $server $port ^$ERR | tee $IN | while read input;
-    log $input
+    log '< '$input
     switch $input
         case 'PING*'
             out $input | sed 's/I/O/'
