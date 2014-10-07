@@ -39,13 +39,15 @@ tail -f $OUT | telnet $server $port ^$ERR | tee $IN | while read input;
             if [ (count $components) -ge '4' ]
                 set nick (echo $components[1] | sed 's/^:\(.*\)!.*/\1/')
                 set chan $components[3]
-                set cmd (echo $components[4] | sed 's/:'$leader'\(.*\)/\1/')
+                set cmd (echo $components[4] | sed -n 's/:'$leader'\([[:alpha:]]\+\)/\1/p')
                 if [ (count $components) -ge '5' ]
                     set rest (echo $components[5..-1] | tr \n ' ' | sed 's/[[:space:]]*$//')
                 else
                     set rest ''
                 end
-                . mods/$cmd.fish
+                if test -n $cmd -a -f mods/$cmd.fish
+                    . mods/$cmd.fish
+                end
             end
     end
 end
