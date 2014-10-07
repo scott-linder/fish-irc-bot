@@ -1,0 +1,1 @@
+$help [command] | get helptext | note: <...> denotes a required argument, whereas [...] denotes an optional one
