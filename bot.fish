@@ -46,6 +46,7 @@ tail -f $OUT | telnet $server $port ^$ERR | tee $IN | while read input;
                     set rest ''
                 end
                 if test -n $cmd -a -f mods/$cmd.fish
+                    log '. 'mods/$cmd.fish
                     . mods/$cmd.fish
                 end
             end
