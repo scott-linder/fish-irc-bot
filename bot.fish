@@ -7,6 +7,7 @@ set chan test
 set nick fish
 set user 'fish localhost localhost :fish'
 set leader '$'
+set ignore
 
 # User configuration
 . bot.cfg
@@ -46,8 +47,10 @@ tail -f $OUT | telnet $server $port ^$ERR | tee $IN | while read input;
                     set rest ''
                 end
                 if test -n $cmd -a -f mods/$cmd.fish
-                    log '. 'mods/$cmd.fish
-                    . mods/$cmd.fish
+                    if not contains $nick $ignore
+                        log '. 'mods/$cmd.fish
+                        . mods/$cmd.fish
+                    end
                 end
             end
     end
