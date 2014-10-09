@@ -1,0 +1,1 @@
+me $chan $rest
