@@ -3,7 +3,7 @@
 # Default configuration
 set SERVER localhost
 set PORT 6667
-set CHAN test
+set CHANS test
 set NICK fish
 set IRCUSER 'fish localhost localhost :fish'
 set LEADER '$'
@@ -29,7 +29,9 @@ mkdir -p data/
 log ">>>>> New Session <<<<<"
 out "NICK $NICK"
 out "USER $IRCUSER"
-out "JOIN #$CHAN"
+for chan in $CHANS
+    out "JOIN #$chan"
+end
 tail -f $OUT | telnet $SERVER $PORT ^$ERR | tee $IN | while read input;
     log '< '$input
     switch $input
@@ -40,6 +42,10 @@ tail -f $OUT | telnet $SERVER $PORT ^$ERR | tee $IN | while read input;
             if [ (count $components) -ge '4' ]
                 set nick (echo $components[1] | sed 's/^:\(.*\)!.*/\1/')
                 set chan $components[3]
+                # if a user is PM'ing us, rather than a chan
+                if test $chan = $NICK
+                    set chan $nick
+                end
                 set cmd (echo $components[4] | sed -n 's/:'$LEADER'\([[:alpha:]]\+\)/\1/p')
                 if [ (count $components) -ge '5' ]
                     set rest (echo $components[5..-1] | tr \n ' ' | sed 's/[[:space:]]*$//')
