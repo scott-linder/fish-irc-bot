@@ -1,5 +1,5 @@
 if test -n $rest
-    set topic (echo $rest | tr -cd '[:alpha:]')
+    set topic (echo $rest | tr -cd '[:alnum:]')
     set file man/$topic.txt
     if test -f $file
         msg $chan $nick': '(cat $file)

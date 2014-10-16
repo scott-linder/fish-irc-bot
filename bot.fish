@@ -47,7 +47,7 @@ tail -f $OUT | telnet $SERVER $PORT ^$ERR | tee $IN | while read input;
                 if test $chan = $NICK
                     set chan $nick
                 end
-                set cmd (echo $components[4] | sed -n 's/:'$LEADER'\([[:alpha:]]\+\)/\1/p')
+                set cmd (echo $components[4] | sed -n 's/:'$LEADER'\([[:alnum:]]\+\)/\1/p')
                 if [ (count $components) -ge '5' ]
                     set rest (echo $components[5..-1] | tr \n ' ' | sed 's/[[:space:]]*$//')
                 else
