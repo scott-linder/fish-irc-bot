@@ -19,3 +19,21 @@ function me -d "Send a PRIVMSG ACTION"
     set -l rest $argv[2..-1]
     msg $chan \001'ACTION '$rest
 end
+
+function clean_chan -d "Cleanup a channel name"
+    echo $argv[1] | tr -d ' \007,'
+end
+
+function join -d "Join a channel"
+    set -l chan (clean_chan $argv[1])
+    if test -n $chan
+        out "JOIN $chan"
+    end
+end
+
+function part -d "Part a channel"
+    set -l chan (clean_chan $argv[1])
+    if test -n $chan
+        out "PART $chan :blub blub"
+    end
+end

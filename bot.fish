@@ -8,6 +8,7 @@ set NICK fish
 set IRCUSER 'fish localhost localhost :fish'
 set LEADER '$'
 set IGNORE
+set ADMINS
 
 # User configuration
 . bot.cfg
@@ -30,7 +31,7 @@ log ">>>>> New Session <<<<<"
 out "NICK $NICK"
 out "USER $IRCUSER"
 for chan in $CHANS
-    out "JOIN #$chan"
+    join "#$chan"
 end
 tail -f $OUT | telnet $SERVER $PORT ^$ERR | tee $IN | while read input;
     log '< '$input
