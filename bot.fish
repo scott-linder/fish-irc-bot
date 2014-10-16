@@ -53,10 +53,10 @@ tail -f $OUT | telnet $SERVER $PORT ^$ERR | tee $IN | while read input;
                 else
                     set rest ''
                 end
-                if test -n $cmd -a -f mods/$cmd.fish
+                if test -n $cmd -a -f cmd/$cmd.fish
                     if not contains $nick $IGNORE
-                        log '. 'mods/$cmd.fish
-                        . mods/$cmd.fish
+                        log '. 'cmd/$cmd.fish
+                        . cmd/$cmd.fish
                     end
                 end
             end
