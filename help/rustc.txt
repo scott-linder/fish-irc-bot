@@ -1,1 +1,0 @@
-$rustc <code> | compile and run rust (http://www.rust-lang.org/) code
