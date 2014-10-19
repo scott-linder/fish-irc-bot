@@ -53,8 +53,13 @@ tail -f $OUT | telnet $SERVER $PORT ^$ERR | tee $IN | while read input;
                 else
                     set rest ''
                 end
-                if test -n $cmd -a -f cmd/$cmd.fish
-                    if not contains $nick $IGNORE
+                if not contains $nick $IGNORE
+                    if test -n "$cmd"
+                        # `$foo` is sugar for `$cat foo` if $foo is not a command
+                        if not test -f cmd/$cmd.fish
+                            set rest $cmd
+                            set cmd cat
+                        end
                         log '. 'cmd/$cmd.fish
                         . cmd/$cmd.fish
                     end
