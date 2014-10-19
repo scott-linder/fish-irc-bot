@@ -1,0 +1,1 @@
+mv <from> <to> | move (rename) a file | NOTE: destination cannot exist; use $rm first
