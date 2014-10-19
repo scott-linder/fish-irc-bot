@@ -8,7 +8,7 @@ set NICK fish
 set IRCUSER 'fish localhost localhost :fish'
 set LEADER '$'
 set IGNORE
-set ADMINS
+set SUDOERS
 
 # User configuration
 . bot.cfg

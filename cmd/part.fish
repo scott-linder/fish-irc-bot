@@ -1,3 +1,3 @@
-if contains $nick $ADMINS
+if sudoer $nick
     part $rest
 end
