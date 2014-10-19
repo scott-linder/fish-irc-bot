@@ -1,0 +1,1 @@
+get <string> | retrieve the karma of a string

@@ -1,0 +1,1 @@
+wc <file> | determine how many lines a file has

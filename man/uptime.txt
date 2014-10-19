@@ -1,0 +1,1 @@
+uptime | information about fish's host

@@ -1,0 +1,1 @@
+part <channel> | leave a channel | requires root

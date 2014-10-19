@@ -1,0 +1,1 @@
+uname | information about fish's host

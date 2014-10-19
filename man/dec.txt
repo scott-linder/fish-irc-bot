@@ -1,0 +1,1 @@
+dec <string> | decrement the karma of a string

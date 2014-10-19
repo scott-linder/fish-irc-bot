@@ -1,0 +1,1 @@
+inc <string> | increment the karma of a string

@@ -1,0 +1,1 @@
+rm <file> | remove a file | requires root

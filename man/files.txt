@@ -1,0 +1,1 @@
+save and retrieve text | refer to man pages for: cat echo ls rm wc

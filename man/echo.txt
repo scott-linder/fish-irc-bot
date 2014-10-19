@@ -1,0 +1,1 @@
+echo <string> [>> file] | print a string, optionally to a file

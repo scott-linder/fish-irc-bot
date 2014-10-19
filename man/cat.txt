@@ -1,0 +1,1 @@
+cat <file> | view random line from file
