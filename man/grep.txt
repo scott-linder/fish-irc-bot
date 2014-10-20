@@ -1,0 +1,1 @@
+grep <pattern> <file> | view random line from file which matches the given pattern
