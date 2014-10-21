@@ -40,7 +40,7 @@ end
 
 function sudoer -d "Check if user is admin"
     set -l user $argv[1]
-    contains $user $SUDOERS
+    grep -Fxq $user etc/sudoers
     or begin
         msg $chan $user': Aquaman told me I can\'t let you do that. This incident will be reported.'
         false

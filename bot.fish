@@ -7,8 +7,6 @@ set CHANS test
 set NICK fish
 set IRCUSER 'fish localhost localhost :fish'
 set LEADER '$'
-set IGNORE
-set SUDOERS
 
 # User configuration
 . bot.cfg
@@ -53,7 +51,7 @@ tail -f $OUT | telnet $SERVER $PORT ^$ERR | tee $IN | while read input;
                 else
                     set rest ''
                 end
-                if not contains $nick $IGNORE
+                if not grep -Fxq $nick etc/ignore
                     if test -n "$cmd"
                         # `$foo` is sugar for `$cat foo` if $foo is not a command
                         if not test -f cmd/$cmd.fish

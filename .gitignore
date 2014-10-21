@@ -4,3 +4,4 @@ bot.output
 bot.error
 bot.log
 data/
+etc/
