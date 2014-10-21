@@ -54,12 +54,12 @@ tail -f $OUT | telnet $SERVER $PORT ^$ERR | tee $IN | while read input;
                 if not grep -Fxq $nick etc/ignore
                     if test -n "$cmd"
                         # `$foo` is sugar for `$cat foo` if $foo is not a command
-                        if not test -f cmd/$cmd.fish
+                        if not test -f bin/$cmd.fish
                             set rest $cmd
                             set cmd cat
                         end
-                        log '. 'cmd/$cmd.fish
-                        . cmd/$cmd.fish
+                        log '. 'bin/$cmd.fish
+                        . bin/$cmd.fish
                     end
                 end
             end
