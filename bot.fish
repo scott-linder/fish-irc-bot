@@ -9,7 +9,7 @@ set IRCUSER 'fish localhost localhost :fish'
 set LEADER '$'
 
 # User configuration
-. bot.cfg
+. etc/config.fish
 
 # Constants
 set IN 'bot.input'
