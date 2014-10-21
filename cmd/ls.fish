@@ -1,1 +1,1 @@
-msg $chan (ls data/file/ | tr \n ' ')
+msg $chan (ls var/file/ | tr \n ' ')

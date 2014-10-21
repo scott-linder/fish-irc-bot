@@ -1,6 +1,6 @@
 function karma_file -d 'Get filename for given karma target'
-    mkdir -p 'data/karma/'
-    echo 'data/karma/'(echo $rest | md5sum | awk '{ print $1 }')
+    mkdir -p 'var/karma/'
+    echo 'var/karma/'(echo $rest | md5sum | awk '{ print $1 }')
 end
 
 function karma_get -d 'Get karma for given target'

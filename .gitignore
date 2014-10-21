@@ -3,5 +3,5 @@ bot.input
 bot.output
 bot.error
 bot.log
-data/
+var/
 etc/
