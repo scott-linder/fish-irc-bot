@@ -1,0 +1,1 @@
+msg $chan (math $rest)
