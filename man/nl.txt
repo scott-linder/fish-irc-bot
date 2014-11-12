@@ -1,0 +1,1 @@
+nl <file> | enumerate all lines of a file
