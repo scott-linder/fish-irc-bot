@@ -1,0 +1,1 @@
+tell <chan> <string> | print a string to a given channel/nick
