@@ -3,7 +3,7 @@
 # Default configuration
 set SERVER localhost
 set PORT 6667
-set CHANS test
+set CHANS '#test'
 set NICK fish
 set IRCUSER 'fish localhost localhost :fish'
 set LEADER '$'
@@ -29,7 +29,7 @@ log ">>>>> New Session <<<<<"
 out "NICK $NICK"
 out "USER $IRCUSER"
 for chan in $CHANS
-    join "#$chan"
+    join "$chan"
 end
 tail -f $OUT | telnet $SERVER $PORT ^$ERR | tee $IN | while read input;
     log '< '$input
