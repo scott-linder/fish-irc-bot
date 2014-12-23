@@ -1,1 +1,1 @@
-msg $chan (echo '{"code":"'(echo $rest | sed 's/\\\\/\\\\\\\\/g' | sed 's/"/\\\\"/g')'"}' | curl -X POST -d @- -H 'Content-Type: application/json' 'http://play.rust-lang.org/evaluate.json' | python3 -c 'import json; print(json.loads(input())["result"]);' | head -c 500)
+msg $chan (echo '{"code":"'(echo $rest | sed 's/\\\\/\\\\\\\\/g' | sed 's/"/\\\\"/g')'"}' | curl -X POST -d @- -H 'Content-Type: application/json' 'http://play.rust-lang.org/evaluate.json' | python3 -c 'import json; print(json.loads(input())["result"]);')
