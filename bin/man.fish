@@ -1,4 +1,4 @@
-if test -n $rest
+if test -n "$rest"
     set topic (echo $rest | tr -cd '[:alnum:]')
     set file man/$topic.txt
     if test -f $file
