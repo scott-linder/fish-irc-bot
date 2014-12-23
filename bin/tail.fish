@@ -1,5 +1,5 @@
 . lib/file.fish
-set file (file_file $rest)
+set file (chan_file $chan $rest)
 if test -n "$file" -a -f $file
     msg $chan (tail -1 $file)
 else
