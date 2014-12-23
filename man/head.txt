@@ -1,0 +1,1 @@
+head <file> | view first line from file
