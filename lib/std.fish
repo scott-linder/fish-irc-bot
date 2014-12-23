@@ -5,7 +5,7 @@ end
 function out -d "Write to IRC server"
     set -l output $argv[1]
     log '> '$output
-    echo $output | head -c 512 >>$OUT
+    echo -n $output | head -c 510 | cat - (echo \r\n | psub) >>$OUT
 end
 
 function msg -d "Send a PRIVMSG"
