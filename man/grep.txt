@@ -1,1 +1,1 @@
-grep <pattern> <file> | view random line from file which matches the given pattern
+grep [-c] [-i] <pattern with spaces> <file> | view random line from file which matches the given pattern | -c returns count | -i ignores case
