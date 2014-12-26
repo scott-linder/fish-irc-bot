@@ -31,13 +31,13 @@ out "USER $IRCUSER"
 for chan in $CHANS
     join "$chan"
 end
-tail -f $OUT | telnet $SERVER $PORT ^$ERR | tee $IN | while read input;
+tail -f $OUT | nc -C $SERVER $PORT ^$ERR | tee $IN | while read input;
     log '< '$input
     switch $input
         case 'PING*'
             out $input | sed 's/I/O/'
         case '*PRIVMSG*'
-            set components (echo $input | tr ' ' \n)
+            set components (echo $input | tr -d \r\n | tr ' ' \n)
             if [ (count $components) -ge '4' ]
                 set nick (echo $components[1] | sed 's/^:\(.*\)!.*/\1/')
                 set chan $components[3]
