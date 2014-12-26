@@ -47,7 +47,7 @@ tail -f $OUT | nc -C $SERVER $PORT ^$ERR | tee $IN | while read input;
                 end
                 set cmd (echo $components[4] | sed -n 's/:'$LEADER'\([[:alnum:]]\+\)/\1/p')
                 if [ (count $components) -ge '5' ]
-                    set rest (echo $components[5..-1] | tr \n ' ' | sed 's/[[:space:]]*$//')
+                    set rest (echo $components[5..-1])
                 else
                     set rest ''
                 end
