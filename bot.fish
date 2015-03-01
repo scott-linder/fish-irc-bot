@@ -56,7 +56,7 @@ tail -f $OUT | nc -C $SERVER $PORT ^$ERR | tee $IN | while read input;
                         # `$foo` is sugar for `$cat foo` if $foo is not a command
                         if not test -f bin/$cmd.fish
                             set rest $cmd
-                            set cmd cat
+                            set cmd rand
                         end
                         log '. 'bin/$cmd.fish
                         . bin/$cmd.fish

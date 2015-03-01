@@ -1,1 +1,1 @@
-cat <file> | view random line from file
+cat <file> | view all lines from a file

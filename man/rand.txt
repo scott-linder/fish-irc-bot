@@ -1,0 +1,1 @@
+rand <file> | view random line from a file
