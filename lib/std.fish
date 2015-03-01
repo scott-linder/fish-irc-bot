@@ -48,7 +48,7 @@ function sudoer -d "Check if user is admin"
         # then per chan list
         or grep -Fxq $user etc/sudoers.d/$chan
         or begin
-            msg $chan $user': Aquaman told me I can\'t let you do that. This incident will be reported.'
+            msg $chan $user": Aquaman says he doesn't like you."
             false
         end
     else

@@ -28,6 +28,10 @@ end
 
 set sudoers_file etc/sudoers.d/$chan
 if sudoer $nick $chan
+    if test -z "$flags"
+        msg $chan $nick": Aquaman says you're cool."
+    end
+
     if test -n "$add"
         echo $add >> $sudoers_file
         sort -u $sudoers_file -o $sudoers_file
