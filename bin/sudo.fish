@@ -41,12 +41,12 @@ if sudoer $nick $chan
         if test -f $sudoers_file
             set sudoers (cat $sudoers_file | tr \n ' ')
             if test -n "$sudoers"
-                msg $chan $sudoers
+                msg $chan "channel is privileged, with local sudoers: $sudoers"
             else
-                msg $chan "channel is moderated"
+                msg $chan "channel is privileged, with no local sudoers"
             end
         else
-            msg $chan "channel is unmoderated"
+            msg $chan "channel is unprivileged"
         end
     end
 end
