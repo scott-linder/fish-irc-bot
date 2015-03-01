@@ -1,6 +1,6 @@
 . lib/file.fish
 set file (chan_file $chan $rest)
-if sudoer $nick
+if sudoer $nick $chan
     if test -n "$file" -a -f $file
         rm $file
     else

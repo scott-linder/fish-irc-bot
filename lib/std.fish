@@ -40,9 +40,18 @@ end
 
 function sudoer -d "Check if user is admin"
     set -l user $argv[1]
-    grep -Fxq $user etc/sudoers
-    or begin
-        msg $chan $user': Aquaman told me I can\'t let you do that. This incident will be reported.'
-        false
+    set -l chan $argv[2]
+    # channels are only moderated if they have a file in sudoers.d
+    if test -f etc/sudoers.d/$chan
+        # check global moderator list
+        grep -Fxq $user etc/sudoers
+        # then per chan list
+        or grep -Fxq $user etc/sudoers.d/$chan
+        or begin
+            msg $chan $user': Aquaman told me I can\'t let you do that. This incident will be reported.'
+            false
+        end
+    else
+        true
     end
 end
