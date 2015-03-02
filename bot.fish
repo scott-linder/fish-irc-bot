@@ -3,7 +3,6 @@
 # Default configuration
 set SERVER localhost
 set PORT 6667
-set CHANS '#test'
 set NICK fish
 set IRCUSER 'fish localhost localhost :fish'
 set LEADER '$'
@@ -28,8 +27,11 @@ mkdir -p var/
 log ">>>>> New Session <<<<<"
 out "NICK $NICK"
 out "USER $IRCUSER"
-for chan in $CHANS
-    join "$chan"
+for chan in (cat var/chans)
+    set join_chan (clean_chan $chan)
+    if test -n "$join_chan"
+        join $join_chan
+    end
 end
 tail -f $OUT | nc -C $SERVER $PORT ^$ERR | tee $IN | while read input;
     log '< '$input

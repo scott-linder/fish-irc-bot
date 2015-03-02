@@ -25,17 +25,13 @@ function clean_chan -d "Cleanup a channel name"
 end
 
 function join -d "Join a channel"
-    set -l chan (clean_chan $argv[1])
-    if test -n $chan
-        out "JOIN $chan"
-    end
+    set -l chan $argv[1]
+    out "JOIN $chan"
 end
 
 function part -d "Part a channel"
-    set -l chan (clean_chan $argv[1])
-    if test -n $chan
-        out "PART $chan :blub blub"
-    end
+    set -l chan $argv[1]
+    out "PART $chan :blub blub"
 end
 
 function sudoer -d "Check if user is admin"
