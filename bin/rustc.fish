@@ -1,5 +1,5 @@
 set code "\
-#![feature(asm, simd, thread_local, unsafe_destructor)]\
+#![feature(asm, simd, thread_local, unsafe_destructor, unicode)]\
 #![feature(core, libc, collections, std_misc, io, path)]\
 #![allow(dead_code, unused_variables)]\
 #![allow(unused_features)]\
