@@ -23,6 +23,9 @@ set LOG 'bot.log'
 echo "" >$OUT
 mkdir -p var/
 
+# Connect
+tail -f $OUT | nc -C $SERVER $PORT ^$ERR | tee $IN &
+
 # Session
 log ">>>>> New Session <<<<<"
 out "NICK $NICK"
@@ -33,7 +36,7 @@ for chan in (cat var/chans)
         join $join_chan
     end
 end
-tail -f $OUT | nc -C $SERVER $PORT ^$ERR | tee $IN | while read input;
+tail -f $IN | while read input;
     log '< '$input
     switch $input
         case 'PING*'
