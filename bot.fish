@@ -50,8 +50,10 @@ tail -f $IN | while read input;
                 # if a user is PM'ing us, rather than a chan
                 if test $chan = $NICK
                     set chan $nick
+                else
+                    chat_log $nick $chan (echo $components[4..-1] | sed -n 's/^:\?\(.*\)$/\1/p')
                 end
-                set cmd (echo $components[4] | sed -n 's/:'$LEADER'\([[:alnum:]]\+\)/\1/p')
+                set cmd (echo $components[4] | sed -n 's/:\?'$LEADER'\([[:alnum:]]\+\)/\1/p')
                 if [ (count $components) -ge '5' ]
                     set rest (echo $components[5..-1])
                 else

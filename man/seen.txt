@@ -1,0 +1,1 @@
+seen [-c chan] nick | find last message from nick in any chan | -c specifies one chan to check
