@@ -21,10 +21,11 @@ set LOG 'bot.log'
 
 # Initialization
 echo "" >$OUT
+echo "" >$IN
 mkdir -p var/
 
 # Connect
-tail -f $OUT | nc -C $SERVER $PORT ^$ERR | tee $IN &
+tail -f $OUT | nc -C $SERVER $PORT ^$ERR >> $IN &
 
 # Session
 log ">>>>> New Session <<<<<"
