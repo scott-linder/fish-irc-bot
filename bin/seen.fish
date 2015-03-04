@@ -7,6 +7,7 @@ set flags (opts_flags $sep $opts)
 set rest (opts_rest $sep $opts)
 
 set nick_find (sed_escape_regexp $rest)
+set nick_found (sed_escape_replacement $rest)
 set chan_find '[^ ]\+'
 
 set i 1
@@ -19,7 +20,7 @@ while test $i -le (count $flags)
     set i (math $i+1)
 end
 
-set find (sed -n "s/^$nick_find \($chan_find\) \([^ ]\+\) \([^ ]\+\) \(.*\)/$nick was last seen in \1 on \2 at \3 saying '\4'/p" var/log/chat | tail -1)
+set find (sed -n "s/^$nick_find \($chan_find\) \([^ ]\+\) \([^ ]\+\) \(.*\)/$nick_found was last seen in \1 on \2 at \3 saying '\4'/p" var/log/chat | tail -1)
 
 if test -n "$find"
     msg $chan $find
