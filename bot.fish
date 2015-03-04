@@ -40,7 +40,7 @@ tail -f $IN | while read input;
     log '< '$input
     switch $input
         case 'PING*'
-            out $input | sed 's/I/O/'
+            out (echo $input | sed 's/I/O/')
         case '*PRIVMSG*'
             set components (echo $input | tr -d \r\n | tr ' ' \n)
             if [ (count $components) -ge '4' ]
