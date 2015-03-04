@@ -11,21 +11,20 @@ set LEADER '$'
 . etc/config.fish
 
 # Constants
-set IN 'bot.input'
-set OUT 'bot.output'
-set ERR 'bot.error'
-set LOG 'bot.log'
+set IN 'var/bot.in'
+set OUT 'var/bot.out'
+set LOG 'var/log/bot'
 
 # Standard functions
 . lib/std.fish
 
 # Initialization
-echo "" >$OUT
 echo "" >$IN
-mkdir -p var/
+echo "" >$OUT
+mkdir -p var/log
 
-# Connect
-tail -f $OUT | nc -C $SERVER $PORT ^$ERR >> $IN &
+# Connection
+tail -f $OUT | nc -C $SERVER $PORT >> $IN &
 
 # Session
 log ">>>>> New Session <<<<<"

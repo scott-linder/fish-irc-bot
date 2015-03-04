@@ -19,7 +19,7 @@ while test $i -le (count $flags)
     set i (math $i+1)
 end
 
-set find (sed -n "s/^$nick_find \($chan_find\) \([^ ]\+\) \([^ ]\+\) \(.*\)/$nick was last seen in \1 on \2 at \3 saying '\4'/p" var/chat.log | tail -1)
+set find (sed -n "s/^$nick_find \($chan_find\) \([^ ]\+\) \([^ ]\+\) \(.*\)/$nick was last seen in \1 on \2 at \3 saying '\4'/p" var/log/chat | tail -1)
 
 if test -n "$find"
     msg $chan $find

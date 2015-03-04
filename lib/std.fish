@@ -6,7 +6,7 @@ function chat_log -d 'Write to chat log file'
     set -l nick $argv[1]
     set -l chan $argv[2]
     set -l rest $argv[3]
-    echo $nick $chan (date '+%F %T') $rest >>var/chat.log
+    echo $nick $chan (date '+%F %T') $rest >>var/log/chat
 end
 
 function out -d "Write to IRC server"
