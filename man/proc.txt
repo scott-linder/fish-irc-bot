@@ -1,1 +1,0 @@
-proc <file> | view a file from fish's /proc/self
