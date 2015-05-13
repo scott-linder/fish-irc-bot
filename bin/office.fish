@@ -1,5 +1,7 @@
 . lib/opts.fish
 
+set base_url "http://magpie.dhcp.io"
+
 set opts (opts_getopts r:d: $rest)
 set sep (opts_find_sep $opts)
 set flags (opts_flags $sep $opts)
@@ -22,11 +24,11 @@ while test $i -le (count $flags)
 end
 
 if test -n "$reg"
-    msg $chan $nick': '(curl -d "nick=$nick&mac=$reg" "http://magpie.dhcp.io/reg")
+    msg $chan $nick': '(curl -d "nick=$nick&mac=$reg" "$base_url/reg")
 else if test -n "$dereg"
-    msg $chan $nick': '(curl -d "mac=$dereg" "http://magpie.dhcp.io/dereg")
+    msg $chan $nick': '(curl -d "nick=$nick&mac=$dereg" "$base_url/dereg")
 else
-    set around (curl "http://magpie.dhcp.io/plain")
+    set around (curl "$base_url/plain")
     if test -n "$around"
         msg $chan $nick': '$around
     else
