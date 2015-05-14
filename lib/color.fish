@@ -7,7 +7,7 @@ function color
 end
 
 function random_color
-    color (math (random)%16)
+    color (math (random)%9+3)
 end
 
 function rainbow
