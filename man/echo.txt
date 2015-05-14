@@ -1,1 +1,1 @@
-echo <string> [>> file] | print a string, optionally to a file
+echo [-r] <string> [>> file] | print a string | -r rainbowizes | >> appends to a file
