@@ -27,8 +27,7 @@ function o
     cat /dev/urandom | tr -dc 'oO' | head -c $argv[1]
 end
 
-if test "$o_count" -ge 0
-    set test (math test%512)
+if test "$o_count" -ge 0 -a "$o_count" -le 512
     if test -n "$should_rainbow"
         msg $chan (rainbow (o $o_count))
     else
