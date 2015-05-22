@@ -1,1 +1,1 @@
-office [-r MAC] [-d MAC] | get a list of people recently in the office | -r registers a MAC address under your nick | -d deregisters a MAC
+office [-r MAC] [-d MAC] [-l] | get a list of people recently in the office | -r registers a MAC address under your nick | -d deregisters a MAC address | -l lists all MAC addresses registered under your nick
