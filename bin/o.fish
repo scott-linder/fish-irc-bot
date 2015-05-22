@@ -28,6 +28,7 @@ function o
 end
 
 if test "$o_count" -ge 0
+    set test (math test%512)
     if test -n "$should_rainbow"
         msg $chan (rainbow (o $o_count))
     else
