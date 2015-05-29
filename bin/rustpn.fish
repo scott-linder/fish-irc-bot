@@ -1,1 +1,1 @@
-msg $chan (~/bin/rustpn $rest | tr \n ' ')
+msg $chan (echo $rest | ~/bin/rustpn | tr \n ' ')
