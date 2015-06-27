@@ -37,6 +37,6 @@ else
     if test -n "$around"
         msg $chan $nick': '$around
     else
-        msg $chan $nick': the office is empty'
+        msg $chan $nick': no user machines active'
     end
 end
