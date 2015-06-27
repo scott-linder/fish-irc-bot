@@ -1,1 +1,1 @@
-do <action> | do a thing
+do <chan> <action> | do a thing in a given channel/nick
