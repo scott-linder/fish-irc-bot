@@ -1,1 +1,1 @@
-ls | list all available files
+ls [prefix] | list all available files | optionally filter by literal prefix
