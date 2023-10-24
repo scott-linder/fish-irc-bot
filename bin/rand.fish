@@ -24,7 +24,7 @@ end
 
 set file (chan_file $chan $rest)
 if test -n "$file" -a -f $file
-    set line (cat $file | sort -R | head -1)
+    set line (shuf -n 1 $file)
     if test -n "$should_rainbow"
         msg $chan (rainbow $line)
     else
